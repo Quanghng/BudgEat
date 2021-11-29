@@ -113,7 +113,7 @@ body {
 /* HEADER */
 
 .logo {
-  height: 2.2rem;
+  height: 5.2rem;
 }
 
 .header {
@@ -178,6 +178,7 @@ body {
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-columns: auto;
   align-items: start;
   max-width: 130rem;
   padding: 0 3.2rem;
@@ -239,6 +240,7 @@ body {
 /* RECIPE-EXPOSITION*/
 
 .expo-container {
+  margin-bottom: 12.8rem;
 }
 
 .recipe-expo {
@@ -258,4 +260,79 @@ body {
 }
 .recipe-picture {
   width: 100%;
+}
+
+/***************************/
+
+/* FOOTER */
+
+.footer-container {
+  background-color: #e6fcf5;
+}
+
+.footer-grid-3col {
+  max-width: 120rem;
+  padding: 3.2rem;
+  margin-left: 6.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 120rem;
+  padding: 2.4rem;
+  align-items: start;
+  justify-items: start;
+  gap: 20rem;
+}
+
+.column {
+}
+
+.text-copyright {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: 3.4rem;
+  line-height: 1.6;
+}
+
+.social-network-headline {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.social-network-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.social-network-list-element {
+}
+
+.social-network-list-element-link:link,
+.social-network-list-element-link:visited {
+  text-decoration: none;
+  color: #343a40;
+}
+
+.social-network-list-element-link:hover,
+.social-network-list-element-link:active {
+  text-decoration: none;
+  color: #099268;
+}
+
+.lab {
+  font-size: 3rem;
+}
+
+.contact-main-headline {
+  margin-bottom: 2.4rem;
+  font-size: 2.4rem;
+}
+
+.contact-paragraph {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
