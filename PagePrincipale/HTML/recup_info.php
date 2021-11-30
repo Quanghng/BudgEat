@@ -1,4 +1,4 @@
 <?php
-echo "ra";
-
+$test = $_POST['photo'];
+echo $test;
 ?>

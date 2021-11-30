@@ -199,6 +199,7 @@ body {
   width: 100%;
 }
 
+
 /***************************/
 
 /* Features */
@@ -256,7 +257,6 @@ body {
   padding: 0 3.2rem;
   row-gap: 0;
 }
-
 .recipe-picture {
   width: 100%;
 }
@@ -345,4 +345,10 @@ body {
   line-height: 1.6;
 }
 
+
+.recipe-list button{
+  border: none;
+  display: inline;
+  
+}
 
