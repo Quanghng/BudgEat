@@ -147,8 +147,7 @@
 
           <?php
         foreach  ($db->query($sql) as $row) {
-?>
-          
+          ?>
             <button type="submit" value="<?php echo $row['image']?>" name="photo">
             <li class="recipe-picture-list">
                 <img
