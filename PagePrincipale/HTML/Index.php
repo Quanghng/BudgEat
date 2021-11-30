@@ -1,3 +1,10 @@
+<?php
+     $db = new PDO('mysql:host=localhost;dbname=projet', 'root','');
+     $sql =  'SELECT * FROM recette';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -135,91 +142,27 @@
       </div>
       <div class="expo-container">
         <section class="recipe-expo">
-          <ul class="recipe-list">
+        <ul class="recipe-list">
+        <Form action="recup_info.php" method="post">
+
+          <?php
+        foreach  ($db->query($sql) as $row) {
+?>
+          
+            <button type="submit" value="<?php echo $row['image']?>" name="photo">
             <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo1.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
+                <img
+                  src="../PHOTOS/<?php echo $row['image']?>"
+                  alt="Photo nourriture"
+                  class="recipe-picture"
+                />
             </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo2.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo3.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo4.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo5.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo6.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo7.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo8.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo9.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo10.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo11.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
-            <li class="recipe-picture-list">
-              <img
-                src="../PHOTOS/photo12.jpg"
-                alt="Photo nourriture"
-                class="recipe-picture"
-              />
-            </li>
+            </button>
+           
+          <?php
+        }
+          ?>
+          </Form>
           </ul>
         </section>
       </div>
