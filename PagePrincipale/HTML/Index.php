@@ -136,13 +136,8 @@
         <Form action="recup_info.php" method="post">
 
           <?php
-        foreach  ($db->query($sql) as $row) {
-<<<<<<< HEAD
-?>
-          
-=======
-          ?>
->>>>>>> 90014a040f84db80194d9ced66ff8ce88849c725
+        foreach  ($db->query($sql) as $row) { ?>
+
             <button type="submit" value="<?php echo $row['image']?>" name="photo">
             <li class="recipe-picture-list">
                 <img
