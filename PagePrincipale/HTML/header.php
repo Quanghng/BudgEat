@@ -1,8 +1,4 @@
-<?php
-     $db = new PDO('mysql:host=localhost;dbname=projet', 'root','');
-     $sql =  'SELECT * FROM recette';
 
-?>
 
 
 <html lang="en">
