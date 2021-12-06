@@ -1,5 +1,11 @@
 <?php
+$db = mysqli_connect('localhost', 'root', '', 'projet');
+$sql =  'SELECT * FROM recette';
+session_start();
+
 $test = $_POST['photo'];
-echo $test;
+
+$_SESSION['id'] = $test;
+
 $nextPage = header('Location: pageRecette.php');
 echo $nextPage;

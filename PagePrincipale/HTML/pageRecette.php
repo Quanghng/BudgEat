@@ -1,6 +1,8 @@
 <?php
-$db = new PDO('mysql:host=localhost;dbname=projet', 'root', '');
+$db = mysqli_connect('localhost', 'root', '', 'projet');
 $sql =  'SELECT * FROM recette';
+session_start();
+$id = $_SESSION['id'];
 
 ?>
 
@@ -16,6 +18,12 @@ $sql =  'SELECT * FROM recette';
 </head>
 
 <body>
+    id =
+    <?php echo $_SESSION['id']; ?>
+
+    <!-- image de la recette
+        <div><img src="../PHOTOS/photo<?php echo $ID ?>.jpg" alt=""></div> 
+    -->
 
 </body>
 

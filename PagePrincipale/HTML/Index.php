@@ -1,7 +1,6 @@
 <?php
 $db = new PDO('mysql:host=localhost;dbname=projet', 'root', '');
 $sql =  'SELECT * FROM recette';
-
 ?>
 
 
@@ -96,8 +95,8 @@ $sql =  'SELECT * FROM recette';
         <Form action="recup_info.php" method="post" class="recipe-list">
           <?php
           foreach ($db->query($sql) as $row) { ?>
-            <button type="submit" name="photo" value="<?php echo $row['image'] ?>">
-              <img src="../PHOTOS/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
+            <button type="submit" name="photo" value="<?php echo $row['Id'] ?>">
+              <img src=" ../PHOTOS/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
             </button>
           <?php
           }
