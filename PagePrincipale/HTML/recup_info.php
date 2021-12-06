@@ -1,9 +1,10 @@
 <?php
-$db = mysqli_connect('localhost', 'root', '', 'projet');
+include('connexionBDD.php');
 $sql =  'SELECT * FROM recette';
 session_start();
 
 $test = $_POST['photo'];
+
 
 $_SESSION['id'] = $test;
 

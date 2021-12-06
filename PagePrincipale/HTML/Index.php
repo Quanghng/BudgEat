@@ -1,5 +1,5 @@
 <?php
-$db = new PDO('mysql:host=localhost;dbname=projet', 'root', '');
+include('connexionBDD.php');
 $sql =  'SELECT * FROM recette';
 ?>
 
@@ -20,9 +20,9 @@ $sql =  'SELECT * FROM recette';
 </head>
 
 <body>
-  <header class="header">
-    <?php include('header.php'); ?>
-  </header>
+
+  <?php include('header.php'); ?>
+
   <main>
     <section class="section-hero">
       <div class="hero">
@@ -104,11 +104,8 @@ $sql =  'SELECT * FROM recette';
         </Form>
       </section>
     </div>
-    <div class="footer-container">
-      <footer class="footer-grid-3col">
-        <?php include('footer.php'); ?>
-      </footer>
-    </div>
+    <?php include('footer.php'); ?>
+
   </main>
 </body>
 
