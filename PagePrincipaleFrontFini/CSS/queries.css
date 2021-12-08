@@ -1,0 +1,160 @@
+/***************************/
+
+/* Breakpoint: 1152px */
+
+@media (max-width: 72em) {
+  html {
+    font-size: 56.25%;
+  }
+  .main-nav-list {
+    gap: 3.6rem;
+  }
+}
+/***************************/
+
+/* Breakpoint: 944px */
+
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-img {
+    width: 70%;
+  }
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+  .hero {
+    padding: 0 8rem;
+  }
+  .features-description {
+    gap: 4.8rem;
+  }
+  .feature-title {
+    font-size: 2.1rem;
+  }
+  .recipe-content {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+  }
+  .card-title {
+    font-size: 2rem;
+  }
+  /* MOBILE NAV */
+  .btn-mobile-nav {
+    display: block;
+  }
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.97);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in;
+    transform: translateX(100%);
+
+    /* Visually hiding*/
+    opacity: 0;
+    /* Making it so that the mouse and keyboard cannot affect it */
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+}
+
+/***************************/
+
+/* Breakpoint: 672px */
+
+@media (max-width: 42em) {
+  .flagship-recipe-wrap {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  .recipe-card {
+    width: 65%;
+    margin: 0 auto;
+  }
+  .card-characteristic {
+    font-size: 2rem;
+  }
+
+  .card-title {
+    text-align: center;
+    font-size: 2.8rem;
+  }
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+  .grid--4cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer {
+    gap: 4rem;
+  }
+  .btn:link,
+  .btn:visited {
+    padding: 1.2rem 2.4rem;
+  }
+}
+
+/***************************/
+
+/* Breakpoint: 496px */
+
+@media (max-width: 31em) {
+  .recipe-content {
+    padding: 2rem 2rem 2.4rem 2rem;
+  }
+  .card-title {
+    font-size: 2.2rem;
+  }
+  .hero {
+    padding: 0 4.8rem;
+  }
+  .main-heading {
+    font-size: 3.6rem;
+  }
+  .appear {
+    display: none;
+  }
+  .grid--3cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .annoying {
+    grid-column: 1/-1;
+    width: 50%;
+    justify-self: center;
+  }
+}
