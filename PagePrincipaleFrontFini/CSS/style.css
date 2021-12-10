@@ -300,6 +300,7 @@ body {
 
 /* RECIPE-EXPOSITION*/
 
+
 .recipe-expo-heading {
   font-size: 2.4rem;
   font-weight: 600;
@@ -316,6 +317,7 @@ body {
 .recipe-list {
   list-style: none;
   row-gap: 0;
+  
 }
 .recipe-picture-list {
   overflow: hidden;
