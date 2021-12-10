@@ -3,10 +3,6 @@ include('connexionBDD.php');
 $sql =  'SELECT * FROM recette';
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +13,8 @@ $sql =  'SELECT * FROM recette';
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="../CSS/style.css" rel="stylesheet" />
-  <link href="../CSS/queries.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/style.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../CSS/queries.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../LineAwesome/1.3.0/css/line-awesome.min.css" />
   <title>Budgeat</title>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -103,7 +99,7 @@ $sql =  'SELECT * FROM recette';
         <Form action="recup_info.php" method="post" class="recipe-list grid grid--6cols">
           <?php
           foreach ($db->query($sql) as $row) { ?>
-            <button type="submit" name="photo" value="<?php echo $row['Id'] ?>">
+            <button class="recipe-picture-list" type="submit" name="photo" value="<?php echo $row['Id'] ?>">
               <img src=" ../PHOTOS/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
             </button>
           <?php
