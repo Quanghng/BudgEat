@@ -32,7 +32,7 @@ $recipes3 = $desc3->fetchAll();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="../CSS/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../CSS/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../LineAwesome/1.3.0/css/line-awesome.min.css">
     <title>Budgeat</title>
 </head>
@@ -45,41 +45,43 @@ $recipes3 = $desc3->fetchAll();
         <?php echo $recipes['Nom']; ?>
     </h1>
 
-
-    <!-- Ingredients -->
-
-    <?php
-    foreach ($recipes3 as $des3) {
-    ?>
-        <h4><?php
-            $idIngredient = $des3['Id_ing'];
-            $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
-            $desc4 = $db->prepare($sqlQuery4);
-            $desc4->execute();
-            $recipes4 = $desc4->fetchAll();
-            foreach ($recipes4 as $des4) {
-            ?>
-                <h4><?php echo $des4['Nom']; ?></h4>
-            <?php
-            } ?>
-
-
-        </h4>
-    <?php
-    } ?>
-
-
-
-    <!-- image de la recette
-    <div><img src="../PICTURES/photo<?php echo $ID ?>.jpg" alt=""></div> -->
-
+    <!-- Descrption -->
 
     <h2><?php echo $recipes['Description']; ?></h2>
     <?php
     foreach ($recipes2 as $des2) {
     ?>
+
+        <!-- Ingredients -->
+
+        <?php
+
+        foreach ($recipes3 as $des3) {
+        ?>
+            <h4><?php
+                $idIngredient = $des3['Id_ing'];
+                $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
+                $desc4 = $db->prepare($sqlQuery4);
+                $desc4->execute();
+                $recipes4 = $desc4->fetchAll();
+                foreach ($recipes4 as $des4) {
+                ?>
+                    <?php echo $des4['Nom']; ?>
+                <?php
+                } ?>
+
+
+            </h4>
+        <?php
+        } ?>
+
+        <!-- image de la recette
+    <div><img src="../PICTURES/photo<?php echo $ID ?>.jpg" alt=""></div> -->
+
+
         <!-- Etape + numEtape -->
         <h4><?php echo $des2['Nom']; ?></h4>
+        <!-- L'Etape en elle meme -->
         <p><?php echo $des2['Description']; ?></p>
     <?php
     } ?>
