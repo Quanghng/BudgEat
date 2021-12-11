@@ -1,5 +1,5 @@
 <header class="header">
-  <img class="logo" alt="Budgeat logo" src="../PHOTOS/logo.png" />
+  <img class="logo" alt="Budgeat logo" src="../PICTURES/logo.png" />
   <nav class="main-nav">
     <ul class="main-nav-list">
       <li><a href="#" class="main-nav-link">Section 1</a></li>

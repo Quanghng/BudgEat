@@ -1,7 +1,7 @@
 <div class="footer-container">
   <footer class=" footer-grid-3col">
     <div class="column">
-      <img src="../PHOTOS/logo.png" class="logo" />
+      <img src="../PICTURES/logo.png" class="logo" />
       <p class="text-copyright">
         Copyright &copy; Budgeat 2021 all rights reserved
       </p>

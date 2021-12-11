@@ -41,7 +41,7 @@ $sql =  'SELECT * FROM recette';
           <a href="#" class="btn btn--secondary">A propos &darr;</a>
         </div>
         <div class="hero-img-box">
-          <img src="../PHOTOS/hero.png" alt="bunch of food related images" class="hero-img" />
+          <img src="../PICTURES/hero.png" alt="bunch of food related images" class="hero-img" />
         </div>
       </div>
     </section>
@@ -96,7 +96,7 @@ $sql =  'SELECT * FROM recette';
           <?php
           foreach ($db->query($sql) as $row) { ?>
             <button type="submit" name="photo" value="<?php echo $row['Id'] ?>">
-              <img src=" ../PHOTOS/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
+              <img src=" ../PICTURES/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
             </button>
           <?php
           }

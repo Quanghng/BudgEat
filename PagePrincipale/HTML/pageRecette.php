@@ -14,6 +14,11 @@ $sqlQuery2 = 'SELECT * FROM etape WHERE Id_recette = ' . $ID;
 $desc2 = $db->prepare($sqlQuery2);
 $desc2->execute();
 $recipes2 = $desc2->fetchAll();
+
+$sqlQuery3 = 'SELECT * FROM recette_ingredient WHERE Id_recette = ' . $ID;
+$desc3 = $db->prepare($sqlQuery3);
+$desc3->execute();
+$recipes3 = $desc3->fetchAll();
 ?>
 
 
@@ -37,6 +42,28 @@ $recipes2 = $desc2->fetchAll();
     <h1>
         <?php echo $recipes['Nom']; ?>
     </h1>
+
+    <?php
+    foreach ($recipes3 as $des3) {
+    ?>
+        <h4><?php
+            $idIngredient = $des3['Id_ing'];
+            $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
+            $desc4 = $db->prepare($sqlQuery4);
+            $desc4->execute();
+            $recipes4 = $desc4->fetchAll();
+            foreach ($recipes4 as $des4) {
+            ?>
+                <h4><?php echo $des4['Nom']; ?></h4>
+            <?php
+            } ?>
+
+
+        </h4>
+    <?php
+    } ?>
+
+
 
     <!-- image de la recette
         <div><img src="../PHOTOS/photo<?php echo $ID ?>.jpg" alt=""></div> 

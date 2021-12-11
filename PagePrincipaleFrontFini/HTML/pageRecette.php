@@ -38,10 +38,15 @@ $recipes3 = $desc3->fetchAll();
 </head>
 
 <body>
+    <!-- Nom recette -->
+
     <?php include('header.php') ?>
     <h1>
         <?php echo $recipes['Nom']; ?>
     </h1>
+
+
+    <!-- Ingredients -->
 
     <?php
     foreach ($recipes3 as $des3) {
@@ -66,13 +71,14 @@ $recipes3 = $desc3->fetchAll();
 
 
     <!-- image de la recette
-        <div><img src="../PHOTOS/photo<?php echo $ID ?>.jpg" alt=""></div> 
-    -->
+    <div><img src="../PICTURES/photo<?php echo $ID ?>.jpg" alt=""></div> -->
+
 
     <h2><?php echo $recipes['Description']; ?></h2>
     <?php
     foreach ($recipes2 as $des2) {
     ?>
+        <!-- Etape + numEtape -->
         <h4><?php echo $des2['Nom']; ?></h4>
         <p><?php echo $des2['Description']; ?></p>
     <?php
