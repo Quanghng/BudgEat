@@ -3,7 +3,7 @@
     <nav class="main-nav">
         <ul class="main-nav-list">
             <li>
-                <a href="#notre-politique" class="main-nav-link">Notre politique</a>
+                <a href="notre-politique" class="main-nav-link">Notre politique</a>
             </li>
             <li>
                 <a href="#defile-de-recettes" class="main-nav-link">Defilé de recettes</a>

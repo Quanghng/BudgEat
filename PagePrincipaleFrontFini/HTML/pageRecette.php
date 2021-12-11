@@ -32,67 +32,77 @@ $recipes3 = $desc3->fetchAll();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../CSS/style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../LineAwesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/recettestyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../LineAwesome/1.3.0/css/line-awesome.min.css" />
     <title>Budgeat</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
+
     <!-- Nom recette -->
 
     <?php include('header.php') ?>
-    <h1>
-        <?php echo $recipes['Nom']; ?>
-    </h1>
+    <section class="recipe">
+        <div class="recipe-container">
+            <h1 class="recipe-name">
+                <?php echo $recipes['Nom']; ?>
+            </h1>
 
-    <!-- Descrption -->
+            <!-- Descrption -->
+            <p class="recipe-description"><?php echo $recipes['Description']; ?></p>
 
-    <h2><?php echo $recipes['Description']; ?></h2>
-
-    <!-- Ingredients -->
-
-    <?php
-
-    foreach ($recipes3 as $des3) {
-    ?>
-        <h4><?php
-            $idIngredient = $des3['Id_ing'];
-            $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
-            $desc4 = $db->prepare($sqlQuery4);
-            $desc4->execute();
-            $recipes4 = $desc4->fetchAll();
-            foreach ($recipes4 as $des4) {
-            ?>
-                <?php echo $des4['Nom']; ?>
-            <?php
-            } ?>
-        </h4>
-    <?php
-    } ?>
+            <div class="grid grid--2cols image-ingredients">
 
 
+                <img class="recipe-img" src=" ../PICTURES/photo<?php echo $ID ?>.jpg" alt="">
 
+                <!-- Ingredients -->
+                <ul class="ingredients-list">
+                    <?php
 
-    <!-- Etapes -->
-    <?php
-    foreach ($recipes2 as $des2) {
-    ?>
-        <!-- Etape + numEtape -->
-        <h4><?php echo $des2['Nom']; ?></h4>
-        <!-- L'Etape en elle meme -->
-        <p><?php echo $des2['Description']; ?></p>
-    <?php
-    } ?>
+                    foreach ($recipes3 as $des3) {
+                    ?>
+                        <li class="ingredient"><?php
+                                                $idIngredient = $des3['Id_ing'];
+                                                $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
+                                                $desc4 = $db->prepare($sqlQuery4);
+                                                $desc4->execute();
+                                                $recipes4 = $desc4->fetchAll();
+                                                foreach ($recipes4 as $des4) {
+                                                ?>
+                                <?php echo $des4['Nom']; ?>
+                            <?php
+                                                } ?>
+                        </li>
+                    <?php
+                    } ?>
+
+                </ul>
+            </div>
 
 
 
+            <!-- Etapes -->
+            <div class="recipe-steps">
 
-    <!-- image de la recette
-    <div><img src="../PICTURES/photo<?php echo $ID ?>.jpg" alt=""></div> -->
+                <?php
+                foreach ($recipes2 as $des2) {
+                ?>
+                    <!-- Etape + numEtape -->
+                    <p class="step-name"><?php echo $des2['Nom']; ?></h4>
+                        <!-- L'Etape en elle meme -->
+                    <p class="step-description"><?php echo $des2['Description']; ?></p>
+                <?php
+                } ?>
+            </div>
 
 
 
 
+
+    </section>
     <footer><?php include('footer.php') ?></footer>
 </body>
 
