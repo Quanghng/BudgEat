@@ -55,11 +55,13 @@ $recipes3 = $desc3->fetchAll();
 
             <div class="grid grid--2cols image-ingredients">
 
-
-                <img class="recipe-img" src=" ../PICTURES/photo<?php echo $ID ?>.jpg" alt="">
+                <span class="recipe-img-container">
+                    <img class="recipe-img" src=" ../PICTURES/photo<?php echo $ID ?>.jpg" alt="">
+                </span>
 
                 <!-- Ingredients -->
                 <ul class="ingredients-list">
+                    <p class="ingredients-presentation">Ingredients</p>
                     <?php
 
                     foreach ($recipes3 as $des3) {
