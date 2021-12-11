@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 08, 2021 at 11:52 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Hôte : 127.0.0.1:3306
+-- Généré le : sam. 11 déc. 2021 à 14:25
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,40 +18,46 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projet`
+-- Base de données : `projet1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `code`
+-- Structure de la table `code`
 --
 
-CREATE TABLE `code` (
+DROP TABLE IF EXISTS `code`;
+CREATE TABLE IF NOT EXISTS `code` (
   `Id` int(11) NOT NULL,
   `Nom` varchar(10) DEFAULT NULL,
   `Discription` varchar(255) DEFAULT NULL,
-  `Id_recette` int(11) DEFAULT NULL
+  `Id_recette` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Id_recette` (`Id_recette`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etape`
+-- Structure de la table `etape`
 --
 
-CREATE TABLE `etape` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `etape`;
+CREATE TABLE IF NOT EXISTS `etape` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Id_recette` int(11) DEFAULT NULL,
   `Nom` varchar(50) DEFAULT NULL,
-  `Discription` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Description` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Id_recette` (`Id_recette`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `etape`
+-- Déchargement des données de la table `etape`
 --
 
-INSERT INTO `etape` (`Id`, `Id_recette`, `Nom`, `Discription`) VALUES
+INSERT INTO `etape` (`Id`, `Id_recette`, `Nom`, `Description`) VALUES
 (1, 1, 'Etape 1', 'Cuire la polenta selon les indications du paquet en remuant continuellement.'),
 (2, 1, 'Etape 2', 'Une fois qu’elle est bien épaisse, retirer du feu et ajouter le fromage, saler, poivrer et ajouter des herbes. '),
 (3, 1, 'Etape 3', 'Verser la polenta dans un moule rectangulaire et laisser refroidir plusieurs heures.'),
@@ -125,31 +131,37 @@ INSERT INTO `etape` (`Id`, `Id_recette`, `Nom`, `Discription`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `evaluation`
+-- Structure de la table `evaluation`
 --
 
-CREATE TABLE `evaluation` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `evaluation`;
+CREATE TABLE IF NOT EXISTS `evaluation` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Id_recette` int(11) DEFAULT NULL,
   `Id_user` int(11) DEFAULT NULL,
   `Evaluation` int(11) DEFAULT NULL,
-  `Avis` varchar(255) DEFAULT NULL
+  `Avis` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Id_recette` (`Id_recette`),
+  KEY `Id_user` (`Id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingredient`
+-- Structure de la table `ingredient`
 --
 
-CREATE TABLE `ingredient` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `ingredient`;
+CREATE TABLE IF NOT EXISTS `ingredient` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(255) NOT NULL,
-  `Calories` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Calories` float NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ingredient`
+-- Déchargement des données de la table `ingredient`
 --
 
 INSERT INTO `ingredient` (`Id`, `Nom`, `Calories`) VALUES
@@ -212,20 +224,22 @@ INSERT INTO `ingredient` (`Id`, `Nom`, `Calories`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recette`
+-- Structure de la table `recette`
 --
 
-CREATE TABLE `recette` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `recette`;
+CREATE TABLE IF NOT EXISTS `recette` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(50) DEFAULT NULL,
   `Durée` float NOT NULL,
   `Prix` float NOT NULL,
   `Description` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `recette`
+-- Déchargement des données de la table `recette`
 --
 
 INSERT INTO `recette` (`Id`, `Nom`, `Durée`, `Prix`, `Description`, `image`) VALUES
@@ -245,18 +259,22 @@ INSERT INTO `recette` (`Id`, `Nom`, `Durée`, `Prix`, `Description`, `image`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recette_ingredient`
+-- Structure de la table `recette_ingredient`
 --
 
-CREATE TABLE `recette_ingredient` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `recette_ingredient`;
+CREATE TABLE IF NOT EXISTS `recette_ingredient` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Id_recette` int(11) DEFAULT NULL,
   `Id_ing` int(11) DEFAULT NULL,
-  `Quantite` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Quantite` varchar(255) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Id_recette` (`Id_recette`),
+  KEY `Id_ing` (`Id_ing`)
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `recette_ingredient`
+-- Déchargement des données de la table `recette_ingredient`
 --
 
 INSERT INTO `recette_ingredient` (`Id`, `Id_recette`, `Id_ing`, `Quantite`) VALUES
@@ -366,135 +384,45 @@ INSERT INTO `recette_ingredient` (`Id`, `Id_recette`, `Id_ing`, `Quantite`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usr`
+-- Structure de la table `usr`
 --
 
-CREATE TABLE `usr` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `usr`;
+CREATE TABLE IF NOT EXISTS `usr` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(30) DEFAULT NULL,
   `Prénom` varchar(30) DEFAULT NULL,
   `Age` int(11) DEFAULT NULL,
   `Email` varchar(30) DEFAULT NULL,
-  `Mdp` varchar(30) DEFAULT NULL
+  `Mdp` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Indexes for table `code`
---
-ALTER TABLE `code`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_recette` (`Id_recette`);
-
---
--- Indexes for table `etape`
---
-ALTER TABLE `etape`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_recette` (`Id_recette`);
-
---
--- Indexes for table `evaluation`
---
-ALTER TABLE `evaluation`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_recette` (`Id_recette`),
-  ADD KEY `Id_user` (`Id_user`);
-
---
--- Indexes for table `ingredient`
---
-ALTER TABLE `ingredient`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `recette`
---
-ALTER TABLE `recette`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `recette_ingredient`
---
-ALTER TABLE `recette_ingredient`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_recette` (`Id_recette`),
-  ADD KEY `Id_ing` (`Id_ing`);
-
---
--- Indexes for table `usr`
---
-ALTER TABLE `usr`
-  ADD PRIMARY KEY (`Id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `etape`
---
-ALTER TABLE `etape`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
-
---
--- AUTO_INCREMENT for table `evaluation`
---
-ALTER TABLE `evaluation`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ingredient`
---
-ALTER TABLE `ingredient`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
-
---
--- AUTO_INCREMENT for table `recette`
---
-ALTER TABLE `recette`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `recette_ingredient`
---
-ALTER TABLE `recette_ingredient`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
-
---
--- AUTO_INCREMENT for table `usr`
---
-ALTER TABLE `usr`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `code`
+-- Contraintes pour la table `code`
 --
 ALTER TABLE `code`
   ADD CONSTRAINT `Code_ibfk_1` FOREIGN KEY (`Id_recette`) REFERENCES `recette` (`Id`);
 
 --
--- Constraints for table `etape`
+-- Contraintes pour la table `etape`
 --
 ALTER TABLE `etape`
   ADD CONSTRAINT `etape_ibfk_1` FOREIGN KEY (`Id_recette`) REFERENCES `recette` (`Id`);
 
 --
--- Constraints for table `evaluation`
+-- Contraintes pour la table `evaluation`
 --
 ALTER TABLE `evaluation`
   ADD CONSTRAINT `Evaluation_ibfk_1` FOREIGN KEY (`Id_recette`) REFERENCES `recette` (`Id`),
   ADD CONSTRAINT `Evaluation_ibfk_2` FOREIGN KEY (`Id_user`) REFERENCES `usr` (`Id`);
 
 --
--- Constraints for table `recette_ingredient`
+-- Contraintes pour la table `recette_ingredient`
 --
 ALTER TABLE `recette_ingredient`
   ADD CONSTRAINT `recette_ingredient_ibfk_1` FOREIGN KEY (`Id_recette`) REFERENCES `recette` (`Id`),
