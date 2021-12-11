@@ -48,43 +48,50 @@ $recipes3 = $desc3->fetchAll();
     <!-- Descrption -->
 
     <h2><?php echo $recipes['Description']; ?></h2>
+
+    <!-- Ingredients -->
+
+    <?php
+
+    foreach ($recipes3 as $des3) {
+    ?>
+        <h4><?php
+            $idIngredient = $des3['Id_ing'];
+            $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
+            $desc4 = $db->prepare($sqlQuery4);
+            $desc4->execute();
+            $recipes4 = $desc4->fetchAll();
+            foreach ($recipes4 as $des4) {
+            ?>
+                <?php echo $des4['Nom']; ?>
+            <?php
+            } ?>
+        </h4>
+    <?php
+    } ?>
+
+
+
+
+    <!-- Etapes -->
     <?php
     foreach ($recipes2 as $des2) {
     ?>
-
-        <!-- Ingredients -->
-
-        <?php
-
-        foreach ($recipes3 as $des3) {
-        ?>
-            <h4><?php
-                $idIngredient = $des3['Id_ing'];
-                $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
-                $desc4 = $db->prepare($sqlQuery4);
-                $desc4->execute();
-                $recipes4 = $desc4->fetchAll();
-                foreach ($recipes4 as $des4) {
-                ?>
-                    <?php echo $des4['Nom']; ?>
-                <?php
-                } ?>
-
-
-            </h4>
-        <?php
-        } ?>
-
-        <!-- image de la recette
-    <div><img src="../PICTURES/photo<?php echo $ID ?>.jpg" alt=""></div> -->
-
-
         <!-- Etape + numEtape -->
         <h4><?php echo $des2['Nom']; ?></h4>
         <!-- L'Etape en elle meme -->
         <p><?php echo $des2['Description']; ?></p>
     <?php
     } ?>
+
+
+
+
+    <!-- image de la recette
+    <div><img src="../PICTURES/photo<?php echo $ID ?>.jpg" alt=""></div> -->
+
+
+
 
     <footer><?php include('footer.php') ?></footer>
 </body>
