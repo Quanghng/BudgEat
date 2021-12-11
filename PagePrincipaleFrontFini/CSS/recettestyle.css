@@ -258,17 +258,11 @@ button {
 }
 
 .recipe-img-container {
-  transition: all 0.3s;
-  overflow: hidden;
 }
 
 .recipe-img {
   display: inline-block;
   width: 100%;
-}
-
-.recipe-img:hover {
-  transform: scale(1.01);
 }
 
 .ingredients-presentation {
