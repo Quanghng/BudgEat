@@ -1,7 +1,7 @@
 <div class="footer-container" id="footer">
     <footer class="container footer">
         <div class="logos-copyright">
-            <a href="#"><img class="logo" alt="Budgeat logo" src="../PHOTOS/logo.png" /></a>
+            <a href="#"><img class="logo" alt="Budgeat logo" src="../PICTURES/logo.png" /></a>
             <div class="social-logos">
                 <a href="#" class="social-logo-link"><i class="lab la-facebook social-logo"></i></a>
                 <a href="#" class="social-logo-link"><i class="lab la-twitter social-logo"></i></a>

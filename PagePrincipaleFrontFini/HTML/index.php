@@ -42,7 +42,7 @@ $sql =  'SELECT * FROM recette';
           <a href="#footer" class="btn btn--secondary">A propos &darr;</a>
         </div>
         <div class="hero-img-box">
-          <img src="../PHOTOS/hero.png" alt="bunch of food related images" class="hero-img" />
+          <img src="../PICTURES/hero.png" alt="bunch of food related images" class="hero-img" />
         </div>
       </div>
     </section>
@@ -100,7 +100,7 @@ $sql =  'SELECT * FROM recette';
           <?php
           foreach ($db->query($sql) as $row) { ?>
             <button class="recipe-picture-list" type="submit" name="photo" value="<?php echo $row['Id'] ?>">
-              <img src=" ../PHOTOS/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
+              <img src=" ../PICTURES/<?php echo $row['image'] ?>" alt="Photo nourriture" class="recipe-picture" />
             </button>
           <?php
           }
@@ -113,7 +113,7 @@ $sql =  'SELECT * FROM recette';
         <h2 class="flagship-recipe-heading">Nos recettes phares:</h2>
         <div class="flagship-recipe-wrap">
           <div class="recipe-card">
-            <img src="../PHOTOS/SaladeVegan.jpg" alt="bunch of food related images" class="card-img" />
+            <img src="../PICTURES/SaladeVegan.jpg" alt="bunch of food related images" class="card-img" />
             <div class="recipe-content">
               <span class="card-category vegan">Vegan</span>
               <div class="wrap-card-elements">
@@ -133,7 +133,7 @@ $sql =  'SELECT * FROM recette';
             </div>
           </div>
           <div class="recipe-card">
-            <img src="../PHOTOS/LegumesSautes.jpg" alt="bunch of food related images" class="card-img" />
+            <img src="../PICTURES/LegumesSautes.jpg" alt="bunch of food related images" class="card-img" />
             <div class="recipe-content">
               <span class="card-category vegetarian">Vegetarien</span>
               <div class="wrap-card-elements">
@@ -153,7 +153,7 @@ $sql =  'SELECT * FROM recette';
             </div>
           </div>
           <div class="recipe-card">
-            <img src="../PHOTOS/Pates.jpg" alt="bunch of food related images" class="card-img" />
+            <img src="../PICTURES/Pates.jpg" alt="bunch of food related images" class="card-img" />
             <div class="recipe-content">
               <span class="card-category Vegetarian">Vegetarien</span>
               <div class="wrap-card-elements">
