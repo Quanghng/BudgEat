@@ -43,7 +43,7 @@ $recipes3 = $desc3->fetchAll();
 
     <!-- Nom recette -->
 
-    <?php include('header.php') ?>
+    <?php include('header_recette.php') ?>
     <section class="recipe">
         <div class="recipe-container">
             <h1 class="recipe-name">
