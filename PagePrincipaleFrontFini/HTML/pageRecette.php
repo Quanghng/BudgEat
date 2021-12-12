@@ -68,6 +68,7 @@ $recipes3 = $desc3->fetchAll();
                     ?>
                         <li class="ingredient"><?php
                                                 $idIngredient = $des3['Id_ing'];
+                                                echo $des3['Quantite'];
                                                 $sqlQuery4 = 'SELECT * FROM ingredient WHERE Id = ' . $idIngredient;
                                                 $desc4 = $db->prepare($sqlQuery4);
                                                 $desc4->execute();
