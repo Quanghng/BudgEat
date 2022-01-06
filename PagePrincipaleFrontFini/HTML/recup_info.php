@@ -8,3 +8,6 @@ $_SESSION['id'] = $test;
 
 $nextPage = header('Location: pageRecette.php');
 echo $nextPage;
+
+
+

@@ -22,7 +22,7 @@
         <div class="compte">
             <p class="footer-heading">Compte</p>
             <p>
-                <a href="#" class="footer-link">Creer un compte</a><br />
+                <a href="register.php" class="footer-link">Creer un compte</a><br />
                 <a href="#" class="footer-link">Se connecter</a>
             </p>
         </div>

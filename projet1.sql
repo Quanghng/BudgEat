@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : sam. 11 déc. 2021 à 17:31
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 05 jan. 2022 à 15:35
+-- Version du serveur : 10.4.22-MariaDB
+-- Version de PHP : 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,14 +27,11 @@ SET time_zone = "+00:00";
 -- Structure de la table `code`
 --
 
-DROP TABLE IF EXISTS `code`;
-CREATE TABLE IF NOT EXISTS `code` (
+CREATE TABLE `code` (
   `Id` int(11) NOT NULL,
   `Nom` varchar(10) DEFAULT NULL,
   `Discription` varchar(255) DEFAULT NULL,
-  `Id_recette` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `Id_recette` (`Id_recette`)
+  `Id_recette` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -43,15 +40,12 @@ CREATE TABLE IF NOT EXISTS `code` (
 -- Structure de la table `etape`
 --
 
-DROP TABLE IF EXISTS `etape`;
-CREATE TABLE IF NOT EXISTS `etape` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `etape` (
+  `Id` int(11) NOT NULL,
   `Id_recette` int(11) DEFAULT NULL,
   `Nom` varchar(50) DEFAULT NULL,
-  `Description` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `Id_recette` (`Id_recette`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4;
+  `Description` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `etape`
@@ -123,16 +117,12 @@ INSERT INTO `etape` (`Id`, `Id_recette`, `Nom`, `Description`) VALUES
 -- Structure de la table `evaluation`
 --
 
-DROP TABLE IF EXISTS `evaluation`;
-CREATE TABLE IF NOT EXISTS `evaluation` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `evaluation` (
+  `Id` int(11) NOT NULL,
   `Id_recette` int(11) DEFAULT NULL,
   `Id_user` int(11) DEFAULT NULL,
   `Evaluation` int(11) DEFAULT NULL,
-  `Avis` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `Id_recette` (`Id_recette`),
-  KEY `Id_user` (`Id_user`)
+  `Avis` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -141,13 +131,11 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
 -- Structure de la table `ingredient`
 --
 
-DROP TABLE IF EXISTS `ingredient`;
-CREATE TABLE IF NOT EXISTS `ingredient` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ingredient` (
+  `Id` int(11) NOT NULL,
   `Nom` varchar(255) NOT NULL,
-  `Calories` float NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4;
+  `Calories` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `ingredient`
@@ -216,16 +204,14 @@ INSERT INTO `ingredient` (`Id`, `Nom`, `Calories`) VALUES
 -- Structure de la table `recette`
 --
 
-DROP TABLE IF EXISTS `recette`;
-CREATE TABLE IF NOT EXISTS `recette` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `recette` (
+  `Id` int(11) NOT NULL,
   `Nom` varchar(50) DEFAULT NULL,
   `Durée` float NOT NULL,
   `Prix` float NOT NULL,
   `Description` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `recette`
@@ -251,16 +237,12 @@ INSERT INTO `recette` (`Id`, `Nom`, `Durée`, `Prix`, `Description`, `image`) VA
 -- Structure de la table `recette_ingredient`
 --
 
-DROP TABLE IF EXISTS `recette_ingredient`;
-CREATE TABLE IF NOT EXISTS `recette_ingredient` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `recette_ingredient` (
+  `Id` int(11) NOT NULL,
   `Id_recette` int(11) DEFAULT NULL,
   `Id_ing` int(11) DEFAULT NULL,
-  `Quantite` varchar(255) NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `Id_recette` (`Id_recette`),
-  KEY `Id_ing` (`Id_ing`)
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4;
+  `Quantite` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `recette_ingredient`
@@ -376,16 +358,115 @@ INSERT INTO `recette_ingredient` (`Id`, `Id_recette`, `Id_ing`, `Quantite`) VALU
 -- Structure de la table `usr`
 --
 
-DROP TABLE IF EXISTS `usr`;
-CREATE TABLE IF NOT EXISTS `usr` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(30) DEFAULT NULL,
-  `Prénom` varchar(30) DEFAULT NULL,
-  `Age` int(11) DEFAULT NULL,
-  `Email` varchar(30) DEFAULT NULL,
-  `Mdp` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
+CREATE TABLE `usr` (
+  `Id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `name` varchar(30) DEFAULT NULL,
+  `prenom` varchar(30) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `usr`
+--
+
+INSERT INTO `usr` (`Id`, `username`, `password`, `created_at`, `name`, `prenom`, `age`, `email`) VALUES
+(26, 'aymen', '$2y$10$axQLO.EMGVPX1Dc43aBnqeP18OGCjcrm9Bl/6MB43F3s4Yx4o./Nm', '2022-01-05 15:31:36', 'habes', 'mohamed', 19, 'aiimenhabes@gmail.com');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `code`
+--
+ALTER TABLE `code`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Id_recette` (`Id_recette`);
+
+--
+-- Index pour la table `etape`
+--
+ALTER TABLE `etape`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Id_recette` (`Id_recette`);
+
+--
+-- Index pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Id_recette` (`Id_recette`),
+  ADD KEY `Id_user` (`Id_user`);
+
+--
+-- Index pour la table `ingredient`
+--
+ALTER TABLE `ingredient`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Index pour la table `recette`
+--
+ALTER TABLE `recette`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Index pour la table `recette_ingredient`
+--
+ALTER TABLE `recette_ingredient`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Id_recette` (`Id_recette`),
+  ADD KEY `Id_ing` (`Id_ing`);
+
+--
+-- Index pour la table `usr`
+--
+ALTER TABLE `usr`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `etape`
+--
+ALTER TABLE `etape`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
+--
+-- AUTO_INCREMENT pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `ingredient`
+--
+ALTER TABLE `ingredient`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT pour la table `recette`
+--
+ALTER TABLE `recette`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `recette_ingredient`
+--
+ALTER TABLE `recette_ingredient`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+
+--
+-- AUTO_INCREMENT pour la table `usr`
+--
+ALTER TABLE `usr`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Contraintes pour les tables déchargées
