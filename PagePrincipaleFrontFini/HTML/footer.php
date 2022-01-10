@@ -1,3 +1,11 @@
+<script>
+    function openRegister(){
+        window.open("register.php","_self")
+    };
+    function openLogin(){
+        window.open("login.php","_self")
+    };
+</script>
 <div class="footer-container" id="footer">
     <footer class="container footer">
         <div class="logos-copyright">
@@ -22,8 +30,8 @@
         <div class="compte">
             <p class="footer-heading">Compte</p>
             <p>
-                <a href="register.php" class="footer-link">Creer un compte</a><br />
-                <a href="#" class="footer-link">Se connecter</a>
+                <a href="#" class="footer-link" onclick="openRegister()">Creer un compte</a><br />
+                <a href="#" class="footer-link" onclick="openLogin()">Se connecter</a>
             </p>
         </div>
         <div class="compte">
