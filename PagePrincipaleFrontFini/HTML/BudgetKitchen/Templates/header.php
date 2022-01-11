@@ -30,7 +30,7 @@
       <div class="container">
         <a href="../index.php" class="brand-logo brand-text">BudgEat Kitchen</a>
         <ul id="nav-mobile" class="right hide-on-small-down">
-          <li><a href="add.php" class="btn  z-depth-0">Ajouter</a></li>
+          <li><a href="add.php" class="btn brand z-depth-0">Ajouter</a></li>
         </ul>
       </div>
     </nav>

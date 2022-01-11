@@ -1,3 +1,8 @@
+<script>
+    function openBudgKit(){
+        window.open("BudgetKitchen/indexKit.php","_self")
+    };
+</script>
 <header class="header">
   <a href="index.php#"><img class="logo" alt="Budgeat logo" src="../PICTURES/logo.png" /></a>
   <nav class="main-nav">
@@ -10,6 +15,9 @@
       </li>
       <li>
         <a href="index.php#recettes-phares" class="main-nav-link">Recettes phares</a>
+      </li>
+      <li>
+        <a href="BudgetKitchen/indexKit.php" class="main-nav-link" onclick="openBudgKit()">BudgEat Kitchen</a>
       </li>
       <li><a href="index.php#" class="main-nav-link nav-cta">Nos Recettes</a></li>
     </ul>

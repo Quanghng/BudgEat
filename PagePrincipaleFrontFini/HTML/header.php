@@ -17,7 +17,7 @@
                 <a href="#recettes-phares" class="main-nav-link">Recettes phares</a>
             </li>
             <li>
-                <a href="" class="main-nav-link" onclick="openBudgKit()">Budget Kitchen</a>
+                <a href="" class="main-nav-link" onclick="openBudgKit()">BudgEat Kitchen</a>
             </li>
             <li><a href="#" class="main-nav-link nav-cta">Nos Recettes</a></li>
         </ul>
