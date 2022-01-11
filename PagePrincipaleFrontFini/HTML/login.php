@@ -94,110 +94,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Raleway, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(90deg, #C7C5F4, #776BCC);
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .screen {
-            background: linear-gradient(90deg, #5D54A4, #7C78B8);
-            position: relative;
-            height: 600px;
-            width: 450px;
-            box-shadow: 0px 0px 24px #5C5696;
-        }
-
-        .screen__content {
-            z-index: 1;
-            position: relative;
-            height: 100%;
-        }
-
-        .screen__background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            -webkit-clip-path: inset(0 0 0 0);
-            clip-path: inset(0 0 0 0);
-        }
-
-       
-
-        .login {
-            width: 400px;
-            padding: 150px;
-            padding-top: 156px;
-        }
-
-        .login__field {
-            padding: 10px 0px;
-            position: relative;
-        }
-
-        .login__icon {
-            position: absolute;
-            top: 30px;
-            color: #7875B5;
-        }
-
-        .login__input {
-            border: none;
-            border-bottom: 2px solid #D1D1D4;
-            background: none;
-            padding: 10px;
-            padding-left: 24px;
-            font-weight: 700;
-            width: 75%;
-            transition: .2s;
-        }
-
-        .login__input:active,
-        .login__input:focus,
-        .login__input:hover {
-            outline: none;
-            border-bottom-color: #6A679E;
-        }
-	.btns{
-	     display: flex;
-            align-items: center;
-            justify-content: center;
-	}
-	.par {  color:black; font-size:larger; }
-    </style>
+    <link rel="stylesheet" href="../CSS/log.css">
 </head>
 
 <body>
+    <?php include("header_recette.php") ?>
     <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
-
+        <div class="text-center">
+            <br>
+            <h1>Login</h1><br><br><br>
+        </div>
         <?php
         if (!empty($login_err)) {
             echo '<div class="alert alert-danger">' . $login_err . '</div>';
         }
         ?>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-login">
             <div class="container">
                 <div class="screen">
                     <div class="screen__content">
@@ -220,9 +137,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="form-group" class="btns">
                                 <input type="submit" class="btn btn-primary" value="Login">
                             </div>
-                            <p class="par">Don't have an account? <a href="register.php">Sign up now</a>.</p>
+                            <p class="par">Vous n'avez pas de compte ? <a href="register.php">Inscrivez-vous</a>.</p>
                         </form>
                     </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <?php include("footer.php") ?>
 </body>
+
 
 </html>
