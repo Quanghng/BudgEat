@@ -1,6 +1,6 @@
 <?php
     //Connect to database
-    $conn = mysqli_connect('localhost', 'kaitokid0811', 'kaitokid', 'budgetKit');
+    $conn = mysqli_connect('localhost', 'root', '', 'projet');
 
     //Check connection
     if(!$conn){

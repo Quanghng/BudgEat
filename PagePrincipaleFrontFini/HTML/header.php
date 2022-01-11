@@ -1,6 +1,6 @@
 <script>
     function openBudgKit(){
-        window.open("indexKit.php","_self")
+        window.open("BudgetKitchen/indexKit.php","_self")
     };
 </script>
 <header class="header">
