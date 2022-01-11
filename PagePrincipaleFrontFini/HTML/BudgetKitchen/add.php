@@ -65,7 +65,6 @@
             $allowed = array('jpg', 'jpeg', 'png', 'pdf');
             if (in_array($fileActualExt, $allowed)){
                 if ($fileError === 0){
-                    if ($fileSize < 100000){
                         $fileNameNew = uniqid('', true).".".$fileActualExt;
                         $fileDestination = 'Uploads/'.$fileNameNew;
                         move_uploaded_file($fileTmpName, $fileDestination);
@@ -76,9 +75,6 @@
                         }else{
                             echo 'query erro: ' . mysqli_error($conn);
                         }
-                    }else{
-                        $errors['image'] = "Your file is too big!";
-                    }
                 }else{
                     $errors['image'] = "There was an error uploading your file!";
                 }
