@@ -64,6 +64,7 @@ body {
   overflow-x: hidden;
   background-color: #f5fefb;
 }
+/***************************/
 
 /* REUSABLE COMPONENTS */
 
@@ -145,6 +146,7 @@ button {
 .margin-right-sm {
   margin-right: 1.2rem !important;
 }
+/***************************/
 
 /* HEADER */
 
@@ -221,84 +223,37 @@ button {
   display: none;
 }
 
+/* STICKY NAVIGATION */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+}
+
+.sticky .section-hero {
+  margin-top: 9.6rem;
+}
+
 /***************************/
 
-/* Recipe */
+/*Welcome */
 
-.recipe {
+.wrap-hello {
+  margin: 15rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
 }
 
-.recipe-container {
-  max-width: 90rem;
-  margin: 4.8rem auto;
-  padding: 4.8rem 4.8rem;
-  background-color: #e7f6f2;
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 20px;
-}
-
-.recipe-name {
-  padding-top: 1rem;
-  font-size: 3rem;
-  letter-spacing: -0.5;
-  margin-bottom: 3rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.recipe-description {
-  font-size: 2.4rem;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 3.2rem;
-  line-height: 1.2;
-}
-.image-ingredients {
-  justify-items: end;
-  margin-bottom: 4.8rem;
-  gap: 4.8rem;
-}
-
-.recipe-img-container {
-}
-
-.recipe-img {
-  display: inline-block;
-  width: 100%;
-}
-
-.ingredients-presentation {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.ingredients-list {
-  justify-self: start;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  list-style: none;
-}
-
-.ingredient {
-  font-size: 1.7rem;
-}
-
-.recipe-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  margin-left: 2.4rem;
-}
-
-.step-name {
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-.step-description {
-  font-size: 1.6rem;
-  line-height: 1.6;
+.fix {
+  margin-right: 3rem;
 }
 
 /***************************/
@@ -313,7 +268,7 @@ button {
 }
 
 .footer-container {
-  background-color: #e6fcf5;
+  background-color: #f5fefb;
   padding: 3.6rem 0;
 }
 
